@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -16,13 +17,21 @@ namespace Services
 
         public delegate void CallbackEventHandler();
 
-        public static async Task<TServiceModel> AddService<TServiceModel, TImplementation>()
+        public static async Task<TServiceModel> AddService<TServiceModel, TImplementation>(params (string key, object value)[] args)
             where TServiceModel : IService
             where TImplementation : TServiceModel
         {
             TImplementation instance = (TImplementation)Activator.CreateInstance(typeof(TImplementation));
             Type instanceType = instance.GetType();
 
+            if (args != null && args.Length > 0)
+            {
+                foreach (var arg in args)
+                {
+                    instanceType.GetProperty(arg.key)?.SetValue(instance, arg.value);
+                }
+            }
+            
             MethodInfo setupMethod = instanceType.GetMethod("Setup");
             MethodInfo asyncSetupMethod = instanceType.GetMethod("AsyncSetup");
             if(null != setupMethod)
