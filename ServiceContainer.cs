@@ -2,16 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Services
+namespace ppl.Services.Core
 {
     public static class ServiceContainer
     {
         static string ERROR_NotInitializedOrImplemented => "{0} is not implemented or not initialized in ServiceContainer";
-        static string ERROR_MissingImplementation => "{0} does not implement {1}"; 
         
         static Dictionary<string, IService> _services = new Dictionary<string, IService>();
 

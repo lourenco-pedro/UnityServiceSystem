@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Services
+namespace ppl.Services.Core
 {
     public interface IService
     {
