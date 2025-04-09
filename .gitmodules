@@ -1,6 +1,0 @@
-[submodule "Modules/UIToolkitLayeredService"]
-	path = Modules/UIToolkitLayeredService
-	url = git@github.com:lourenco-pedro/UnityLayeredUIToolkitPanelService.git
-[submodule "Modules/AddressableService"]
-	path = Modules/AddressableService
-	url = git@github.com:lourenco-pedro/UnityAddressableServiceWrapper.git
