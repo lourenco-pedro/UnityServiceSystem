@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ppl.Services.Core
@@ -6,7 +7,7 @@ namespace ppl.Services.Core
     {
         string Name { get; }
 
-        Task AsyncSetup();
+        Task AsyncSetup(Dictionary<string, object> args = null);
                 
 #if UNITY_EDITOR
         void DebugService();

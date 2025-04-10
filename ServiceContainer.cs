@@ -15,29 +15,18 @@ namespace ppl.Services.Core
 
         public delegate void CallbackEventHandler();
 
-        public static async Task<TServiceModel> AddService<TServiceModel, TImplementation>(params (string key, object value)[] args)
+        public static async Task<TServiceModel> AddService<TServiceModel, TImplementation>(Dictionary<string, object> args = null)
             where TServiceModel : IService
             where TImplementation : TServiceModel
         {
             TImplementation instance = (TImplementation)Activator.CreateInstance(typeof(TImplementation));
-            Type instanceType = instance.GetType();
 
-            if (args != null && args.Length > 0)
+            if (args != null)
             {
-                foreach (var arg in args)
-                {
-                    instanceType.GetProperty(arg.key)?.SetValue(instance, arg.value);
-                }
+                await instance.AsyncSetup(args);
             }
             
-            MethodInfo setupMethod = instanceType.GetMethod("Setup");
-            MethodInfo asyncSetupMethod = instanceType.GetMethod("AsyncSetup");
-            if(null != setupMethod)
-                setupMethod.Invoke(instance, null);
-            else if(null != asyncSetupMethod)
-                await (Task)asyncSetupMethod.Invoke(instance, null);
-            
-            _services.Add(typeof(TServiceModel).Name, (TServiceModel)instance);
+            _services.Add(typeof(TServiceModel).Name, instance);
 
             return instance;
         }
