@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using ppl.ServiceManagement;
 
-namespace ppl.Services.Editor
+namespace ppl.ServiceManagement.Editor
 {
     public class ServiceDebugWindow : EditorWindow
     {
