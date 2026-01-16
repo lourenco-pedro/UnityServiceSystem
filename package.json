@@ -1,7 +1,7 @@
 {
   "name": "com.ppl.unityservicesystem",
   "displayName": "Unity Service System",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "unity": "2021.3",
   "description": "A service-based system that allows you to create multiple services with any means and use them in different parts of the project. This repository represents the core system. You can find implemented services that can be used with this in my other repos.",
   "author": {
