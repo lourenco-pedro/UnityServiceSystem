@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ppl.Services.Core
+namespace ppl.ServiceManagement
 {
     public interface IService
     {

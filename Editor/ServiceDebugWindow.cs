@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
-using ppl.Services.Core;
+using ppl.ServiceManagement;
 
 namespace ppl.Services.Editor
 {

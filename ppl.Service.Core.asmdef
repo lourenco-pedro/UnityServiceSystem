@@ -1,6 +1,6 @@
 {
-    "name": "ppl.Service",
-    "rootNamespace": "ppl.Service.Core",
+    "name": "com.ppl.unityservicesystem",
+    "rootNamespace": "ppl.ServiceManagement",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
