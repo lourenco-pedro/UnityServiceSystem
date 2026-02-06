@@ -21,10 +21,7 @@ namespace ppl.ServiceManagement
         {
             TImplementation instance = (TImplementation)Activator.CreateInstance(typeof(TImplementation));
 
-            if (args != null)
-            {
-                await instance.AsyncSetup(args);
-            }
+            await instance.AsyncSetup(args);
             
             _services.Add(typeof(TServiceModel).Name, instance);
 
